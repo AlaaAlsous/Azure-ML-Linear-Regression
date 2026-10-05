@@ -195,4 +195,36 @@ Modellen använder `EngineVolumeLitres` för att förutsäga
 - Deployment state: Healthy
 - Operation state: Succeeded
 
-Efter det kan du gå till **"Consume"**, där du hittar **"REST endpoint"** och **"Primary key"**. Du kan också se kodexempel i **Python, C# och JavaScript** som visar hur du kan använda din endpoint.
+## Steg 7 - Använd Azure ML Endpoint från C#
+
+När endpointen är skapad och har status **Healthy** kan den användas från en extern applikation, till exempel en C#-applikation.
+
+### 1. Gå till Consume
+
+I Azure Machine Learning Studio:
+
+- Gå till **Endpoints**.
+- Öppna `engine-fuel-endpoint`.
+- Klicka på **Consume**.
+
+På denna sida hittar du bland annat:
+
+- REST endpoint
+- Primary key
+- Swagger
+- Kodexempel för bland annat C#, Python och JavaScript.
+
+REST endpoint används för att skicka data till den tränade modellen.
+
+Primary key används för att autentisera applikationen mot endpointen.
+
+---
+
+### 2. Använd `.env` för känslig information
+
+API-nyckeln ska inte skrivas direkt i C#-koden och ska inte publiceras på GitHub.
+
+Installera `DotNetEnv`:
+
+```bash
+dotnet add package DotNetEnv
